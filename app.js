@@ -8,9 +8,22 @@ document.getElementById("subt").addEventListener("click", () => {
 
     let userValue = document.getElementById("guessField").value;
 
+    let regex = /^[a-zA-Z]+$/; 
+
+
     if(remainingGuesses > 0){
         if(userValue == ""){
             alert("Nevar būt tukšums")
+            return;
+        }
+
+        if(regex.test(userValue)){
+            alert("Vērtībai jābūt tikai skaitliskai");
+            return;
+        }
+
+        if(previousValues.includes(userValue)){
+            alert("Vērtības nevar atkārtoties!")
             return;
         }
         
